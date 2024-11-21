@@ -1,0 +1,176 @@
+/* General Styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, #f0e7da, #cde2cb);
+  color: #4a4a4a;
+  text-align: center;
+}
+
+/* Header */
+header {
+  background: #d6ccc2;
+  padding: 20px 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  color: #4b6043;
+}
+
+header p {
+  margin: 5px 0;
+  font-size: 1rem;
+  color: #6c6c6c;
+}
+
+/* Main Layout */
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Zen Garden Section */
+#zen-garden-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 0;
+  gap: 20px;
+  position: relative;
+}
+
+/* Decorative Left and Right Sections */
+#decorative-left, #decorative-right {
+  width: 100px;
+  height: 450px;
+  background: #a5c7a4;
+  border-radius: 20px;
+  box-shadow: inset 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+#decorative-left {
+  position: relative;
+}
+
+#decorative-right {
+  position: relative;
+}
+
+/* Interactive Sand Container */
+#interactive-sand-container {
+  position: relative;
+  width: 800px;
+  height: 400px;
+  background: #e6d7c3;
+  border-radius: 40px; /* Rounded edges for the sand pit */
+  box-shadow: inset 0px 4px 6px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+canvas {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, #f8f2e6, #e6d7c3);
+  border-radius: inherit; /* Matches container's rounded edges */
+}
+
+/* Rake Tools */
+#rake-tools {
+  margin-top: 20px;
+}
+
+button.rake-btn {
+  background: #a58f78;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button.rake-btn:hover {
+  background: #c8b191;
+}
+
+/* Affirmation Section */
+#affirmation-section {
+  margin: 30px 0;
+}
+
+#affirmation-section h2 {
+  font-size: 1.5rem;
+  color: #4b6043;
+}
+
+#affirmation-section p {
+  font-size: 1.1rem;
+  font-style: italic;
+}
+
+/* Toolbox Section */
+#toolbox-section {
+  margin: 40px 0;
+}
+
+#toolbox-section h2 {
+  font-size: 1.5rem;
+  color: #4b6043;
+  margin-bottom: 10px;
+}
+
+
+#breathing-bubble {
+    width: 100px;
+    height: 100px;
+    margin: 10px auto;
+    background: radial-gradient(circle, #88c9b0, #4a746d);
+    border-radius: 50%;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    animation: breathing 6s infinite ease-in-out; /* Smooth breathing animation */
+}
+/* Keyframes for breathing animation */
+@keyframes breathing {
+    0%, 100% {
+        transform: scale(1); /* Normal size */
+    }
+    50% {
+        transform: scale(1.3); /* Slightly expanded size */
+    }
+}
+
+
+
+#sound-therapy {
+  margin: 20px 0;
+}
+
+button.sound-btn {
+  background: #4b6043;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  margin: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button.sound-btn:hover {
+  background: #88c9b0;
+}
+
+/* Footer */
+footer {
+  margin: 40px 0;
+  font-size: 1rem;
+  color: #4a4a4a;
+}
