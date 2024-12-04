@@ -188,3 +188,25 @@ footer {
   font-size: 1rem;
   color: #4a4a4a;
 }
+button {
+  margin-top: 10px;
+  background-color: #4a6a58;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #3b5546;
+}
+
+#reflection-message {
+  display: none;
+  font-size: 1.2em;
+  color: #4a6a58;
+  margin-top: 20px;
+}
+ 

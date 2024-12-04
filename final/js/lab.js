@@ -70,3 +70,21 @@ document.querySelectorAll('.rake-btn').forEach((button) => {
       }
   });
 });
+
+ // Reflection Space Logic
+ const reflectionInput = document.getElementById("reflection-input");
+ const releaseButton = document.getElementById("release-button");
+ const reflectionMessage = document.getElementById("reflection-message");
+
+ releaseButton.addEventListener("click", () => {
+   const input = reflectionInput.value.trim();
+   if (input) {
+     reflectionInput.value = "";
+     reflectionMessage.textContent =
+       "Let your thoughts flow like water. That thought has passed now down the river into the unknown.";
+     reflectionMessage.style.display = "block";
+     setTimeout(() => {
+       reflectionMessage.style.display = "none";
+     }, 4000);
+   }
+ });
