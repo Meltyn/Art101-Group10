@@ -70,6 +70,8 @@ main {
   border-radius: 40px; /* Rounded edges for the sand pit */
   box-shadow: inset 0px 4px 6px rgba(0, 0, 0, 0.2);
   overflow: hidden;
+  margin: 0 auto;
+  display: block;
 }
 
 canvas {
