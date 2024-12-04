@@ -112,7 +112,7 @@ button.rake-btn:hover {
 }
 
 #sandCanvas:hover {
-  cursor: url('../img/draw-cursor.png'), auto;
+  cursor: url('../img/rake.png'), auto;
 }
 
 /* Affirmation Section */
