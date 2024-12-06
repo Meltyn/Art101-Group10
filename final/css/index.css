@@ -27,6 +27,15 @@ header p {
   color: #6c6c6c;
 }
 
+#sound-therapy {
+  margin: 20px 0 40px; /* Increase bottom margin to create space */
+}
+
+#reflection-input {
+  margin-top: 20px; /* Add space above the reflection box */
+}
+
+
 /* Main Layout */
 main {
   max-width: 1200px;
