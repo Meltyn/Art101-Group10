@@ -88,3 +88,15 @@ document.querySelectorAll('.rake-btn').forEach((button) => {
      }, 4000);
    }
  });
+
+
+ 
+ // Select the button and audio elements using their IDs
+const playButton = document.getElementById('playButton');
+const audioElement = document.getElementById('myAudio');
+
+// Add a click event listener to the button
+playButton.addEventListener('click', function() {
+    // Play the audio when the button is clicked
+    audioElement.play();
+});

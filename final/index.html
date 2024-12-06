@@ -61,10 +61,16 @@
                 </div>
                 <div class="tool" id="sound-tool">
                     <h3>Sound Therapy</h3>
-                    <button data-sound="rain">Rain</button>
+                    
+                    <button id="playButton">Play Audio</button>
+                    <audio id="myAudio">
+                        <source src="img/rain-01.mp3" type="audio/mpeg">
+                    </audio>
+                    <audio id="audio" src="img/rain-01.mp3" autostart="false"></audio>
                     <button data-sound="waves">Ocean Waves</button>
                     <button data-sound="birds">Birds Chirping</button>
                 </div>
+                
              
                 <div class="reflection-space">
                     <textarea id="reflection-input" placeholder="Write your thoughts here..."></textarea>
