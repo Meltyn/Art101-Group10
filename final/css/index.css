@@ -52,6 +52,20 @@ main {
   gap: 20px;
   position: relative;
 }
+#clear-sandbox {
+  background: #b56576; /* Soft pinkish background */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#clear-sandbox:hover {
+  background: #d08398; /* Lighter shade on hover */
+}
 
 /* Decorative Left and Right Sections */
 #decorative-left, #decorative-right {
