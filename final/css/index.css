@@ -114,7 +114,6 @@ canvas {
   gap: 10px;  /* Add space between buttons */
 }
 
-
 button.rake-btn {
   background: #a58f78;
   color: white;
@@ -124,16 +123,13 @@ button.rake-btn {
   border-radius: 10px;
   cursor: pointer;
   transition: background 0.3s;
+  display: inline-block;
 }
 
-.rake-btn {
-  display: inline-block; /* Ensure buttons are displayed */
+button.rake-btn:hover {
+  background-color: #c8b191;
 }
 
-
-#sandCanvas:hover {
-  cursor: url('../img/rake.png'), auto;
-}
 
 /* Affirmation Section */
 #affirmation-section {
