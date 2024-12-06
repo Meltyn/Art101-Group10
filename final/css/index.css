@@ -122,6 +122,11 @@ button.rake-btn {
   transition: background 0.3s;
 }
 
+.rake-btn {
+  display: inline-block; /* Ensure buttons are displayed */
+}
+
+
 button.rake-btn:hover {
   background: #c8b191;
 }
