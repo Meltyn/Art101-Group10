@@ -27,6 +27,15 @@ header p {
   color: #6c6c6c;
 }
 
+#sound-therapy {
+  margin: 20px 0 40px; /* Increase bottom margin to create space */
+}
+
+#reflection-input {
+  margin-top: 20px; /* Add space above the reflection box */
+}
+
+
 /* Main Layout */
 main {
   max-width: 1200px;
@@ -42,6 +51,20 @@ main {
   margin: 30px 0;
   gap: 20px;
   position: relative;
+}
+#clear-sandbox {
+  background: #b56576; /* Soft pinkish background */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#clear-sandbox:hover {
+  background: #d08398; /* Lighter shade on hover */
 }
 
 /* Decorative Left and Right Sections */
@@ -98,6 +121,11 @@ button.rake-btn {
   cursor: pointer;
   transition: background 0.3s;
 }
+
+.rake-btn {
+  display: inline-block; /* Ensure buttons are displayed */
+}
+
 
 button.rake-btn:hover {
   background: #c8b191;
