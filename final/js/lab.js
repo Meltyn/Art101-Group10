@@ -21,47 +21,63 @@ const ctx = canvas.getContext('2d');
 let isDrawing = false;
 
 // Variables for raking
-let rakeSize = 5; // Default small rake size
-ctx.lineWidth = rakeSize;
-ctx.lineCap = 'round'; // Makes grooves smooth
+let lastX = null; // Store the last mouse X position
+let lastY = null; // Store the last mouse Y position
 
-// Function to draw rake lines
+// Function to draw rake lines smoothly
 function drawRakeLines(x, y) {
-  for (let i = -2; i <= 2; i++) { // Create 5 lines (-2, -1, 0, 1, 2)
-      ctx.beginPath();
-      ctx.moveTo(x, y + i * rakeSize * 2); // Space lines based on rakeSize
-      ctx.lineTo(x + 1, y + i * rakeSize * 2); // Slight horizontal movement
-      ctx.strokeStyle = '#c8b191'; // Sand groove color
-      ctx.stroke();
+  // If this is the first movement, initialize lastX and lastY
+  if (lastX === null || lastY === null) {
+    lastX = x;
+    lastY = y;
   }
-}
 
-// Undo/Redo stacks
-let undoStack = [];
-let redoStack = [];
+  // Calculate the direction vector
+  const dx = x - lastX;
+  const dy = y - lastY;
 
-// Save the current canvas state
-function saveState() {
-  undoStack.push(canvas.toDataURL()); // Save current canvas state as an image
-  redoStack = []; // Clear redo stack when a new action occurs
-}
+  // Avoid dividing by zero; ensure movement exists
+  const length = Math.sqrt(dx * dx + dy * dy) || 1;
 
-// Function to draw rake lines
-function drawRakeLines(x, y) {
+  // Normalize the direction vector to calculate the perpendicular vector
+  const perpX = (dy / length) * rakeSize * 2; // Perpendicular X
+  const perpY = -(dx / length) * rakeSize * 2; // Perpendicular Y
+
+  // Draw multiple rake lines (parallel grooves)
   for (let i = -2; i <= 2; i++) {
     ctx.beginPath();
-    ctx.moveTo(x, y + i * rakeSize * 2); // Space lines based on rakeSize
-    ctx.lineTo(x + 1, y + i * rakeSize * 2); // Slight horizontal movement
+
+    // Offset each rake line using the perpendicular vector
+    const offsetX = perpX * i;
+    const offsetY = perpY * i;
+
+    ctx.moveTo(lastX + offsetX, lastY + offsetY); // Start of the line
+    ctx.lineTo(x + offsetX, y + offsetY); // End of the line
+
     ctx.strokeStyle = '#c8b191'; // Sand groove color
+    ctx.lineWidth = rakeSize / 2; // Make grooves thinner
     ctx.stroke();
   }
+
+  // Update the last position
+  lastX = x;
+  lastY = y;
 }
 
-// Mouse events for raking
+// Event listeners for drawing
 canvas.addEventListener('mousedown', (e) => {
   isDrawing = true;
-  saveState(); // Save state before any new drawing starts
+  saveState(); // Save the current state for undo
+
+  // Capture the initial position
+  const rect = canvas.getBoundingClientRect();
+  lastX = e.clientX - rect.left;
+  lastY = e.clientY - rect.top;
+
+  // Draw the first rake lines
+  drawRakeLines(lastX, lastY);
 });
+
 canvas.addEventListener('mousemove', (e) => {
   if (isDrawing) {
     const rect = canvas.getBoundingClientRect();
@@ -70,8 +86,27 @@ canvas.addEventListener('mousemove', (e) => {
     drawRakeLines(x, y);
   }
 });
-canvas.addEventListener('mouseup', () => (isDrawing = false));
-canvas.addEventListener('mouseleave', () => (isDrawing = false));
+
+canvas.addEventListener('mouseup', () => {
+  isDrawing = false;
+  lastX = null; // Reset last position
+  lastY = null;
+});
+
+canvas.addEventListener('mouseleave', () => {
+  isDrawing = false;
+  lastX = null; // Reset last position
+  lastY = null;
+});
+
+// undo/redo stacks
+let undoStack = [];
+let redoStack = [];
+// save current canvas state
+function saveState() {
+  undoStack.push(canvas.toDataURL());
+  redoStack = [];
+}
 
 // Button actions
 document.getElementById('smallRake').addEventListener('click', () => {
@@ -90,62 +125,26 @@ document.getElementById('largeRake').addEventListener('click', () => {
 });
 
 document.getElementById('erase').addEventListener('click', () => {
-  saveState(); // Save the current state before clearing
+  saveState();
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 });
 
 document.getElementById('undo').addEventListener('click', () => {
-  undo(); // Call undo when the undo button is clicked
+  undo(); // Call the corrected undo function
 });
 
-document.getElementById('redo').addEventListener('click', () => {
-  if (redoStack.length > 0) {
-    const lastState = redoStack.pop();
-    undoStack.push(canvas.toDataURL()); // Save the current state to undo stack
-    const img = new Image();
-    img.src = lastState;
-    img.onload = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas
-      ctx.drawImage(img, 0, 0); // Draw the restored state
-    };
-  }
-});
-
-// Undo function
 function undo() {
   if (undoStack.length > 0) {
-    redoStack.push(canvas.toDataURL()); // Save the current state for redo
-    const previousState = undoStack.pop(); // Get the last state
+    redoStack.push(canvas.toDataURL());
+    const previousState = undoStack.pop();
     const img = new Image();
     img.src = previousState;
     img.onload = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas
-      ctx.drawImage(img, 0, 0); // Restore the previous state
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(img, 0, 0);
     };
   }
 }
-
-// event listeners for mouse
-canvas.addEventListener('mouseup', () => (isDrawing = false));
-canvas.addEventListener('mouseleave', () => (isDrawing = false));
-
-// Event listeners for drawing
-canvas.addEventListener('mousedown', (e) => {
-  isDrawing = true;
-  saveState(); // Save state for undo
-});
-canvas.addEventListener('mousemove', (e) => {
-  if (isDrawing) {
-    const rect = canvas.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    drawRakeLines(x, y);
-  }
-});
-canvas.addEventListener('mouseup', () => {
-  isDrawing = false;
-});
-
 
 
 
