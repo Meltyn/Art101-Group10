@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var grammar = tracery.createGrammar({
         "origin": [
             "#greeting# #statement#.",
-            "#action#!",
+            "#action#.",
         ],
         "greeting": [
             "I am making today count.", 
@@ -22,9 +22,9 @@ document.addEventListener("DOMContentLoaded", function() {
             "I am ready,",
             "Another day, another opportunity,",
             "Here's to a productive day!",
-            "It's a wonderful time to begin!",
-            "Another day to shine!",
-            "Today, I choose happiness!",
+            "It's a wonderful time to begin,",
+            "Another day to shine,",
+            "Today, I choose happiness,",
             "Today, I am ready for what comes next.",
             "Rise with purpose, shine with confidence.",
 
