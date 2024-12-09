@@ -20,11 +20,11 @@ document.addEventListener("DOMContentLoaded", function() {
             "I will be kind to myself today.",
             "I will find moments of joy today.",
             "I am ready,",
-            "Another day, another opportunity,",
+            "Another day, another opportunity.",
             "Here's to a productive day!",
             "It's a wonderful time to begin,",
             "Another day to shine,",
-            "Today, I choose happiness,",
+            "Today, I choose happiness.",
             "Today, I am ready for what comes next.",
             "Rise with purpose, shine with confidence.",
 
