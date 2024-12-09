@@ -3,10 +3,89 @@ body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
-  background: linear-gradient(to bottom, #f0e7da, #cde2cb);
+  background: linear-gradient(to bottom, #f4f4f0, #d4ecd6 20%, #b8d9f4 50%, #88c9b0 80%);
+  overflow-y: auto; /* Allows scrolling */
+  position: relative; /* Ensures the images are relative to the body */
   color: #4a4a4a;
   text-align: center;
+  min-height: 100vh; /* Ensures scrolling can happen */
 }
+
+/* General container for the body */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f5f5f5; /* Background color */
+  overflow-y: auto; /* Ensures scrolling */
+  position: relative; /* Ensures the images are relative to the body */
+}
+
+/* Container for your main content (like the Zen Garden and Daily Affirmations) */
+.main-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1; /* Keeps content above images */
+  padding: 20px;
+}
+
+/* Styling for the images to ensure they are smaller and scattered */
+img {
+  position: absolute;
+  max-width: 250px; /* Image size control */
+  width: auto;
+  height: auto;
+  border-radius: 12px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0.8; /* Slight transparency for layering */
+  z-index: -1; /* Ensure images are behind the text */
+}
+
+.no-scatter {
+  position: relative; /* Prevents moving out of its container */
+  pointer-events: none; /* Disables interaction during dragging */
+}
+
+.icon-row {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+
+/* Position the images randomly on the page */
+img:nth-child(1) {
+  top: 15%; left: 10%;
+  max-width: 120px;
+}
+
+img:nth-child(2) {
+  top: 30%; left: 50%;
+  max-width: 130px;
+}
+
+img:nth-child(3) {
+  top: 45%; left: 80%;
+  max-width: 140px;
+}
+
+img:nth-child(4) {
+  top: 60%; left: 20%;
+  max-width: 110px;
+}
+
+img:nth-child(5) {
+  top: 70%; left: 70%;
+  max-width: 125px;
+}
+
+img:nth-child(6) {
+  top: 80%; left: 30%;
+  max-width: 100px;
+}
+
+/* Add more nth-child rules as needed for more images */
 
 /* Header */
 header {
@@ -27,6 +106,15 @@ header p {
   color: #6c6c6c;
 }
 
+.zen-divider {
+  margin: 30px auto;
+  width: 80%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #88c9b0, transparent);
+  border-radius: 2px;
+  opacity: 0.8;
+}
+
 /* Main Layout */
 main {
   max-width: 1200px;
@@ -43,6 +131,7 @@ main {
   gap: 20px;
   position: relative;
 }
+
 #clear-sandbox {
   background: #b56576; /* Soft pinkish background */
   color: white;
@@ -56,23 +145,6 @@ main {
 
 #clear-sandbox:hover {
   background: #d08398; /* Lighter shade on hover */
-}
-
-/* Decorative Left and Right Sections */
-#decorative-left, #decorative-right {
-  width: 100px;
-  height: 450px;
-  background: #a5c7a4;
-  border-radius: 20px;
-  box-shadow: inset 0px 4px 6px rgba(0, 0, 0, 0.2);
-}
-
-#decorative-left {
-  position: relative;
-}
-
-#decorative-right {
-  position: relative;
 }
 
 /* Interactive Sand Container */
@@ -122,25 +194,24 @@ canvas {
   margin-bottom: 10px;
 }
 
-
-
 #breathing-bubble {
-    width: 100px;
-    height: 100px;
-    margin: 10px auto;
-    background: radial-gradient(circle, #88c9b0, #4a746d);
-    border-radius: 50%;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    animation: breathing 6s infinite ease-in-out; /* Smooth breathing animation */
+  width: 100px;
+  height: 100px;
+  margin: 10px auto;
+  background: radial-gradient(circle, #88c9b0, #4a746d);
+  border-radius: 50%;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  animation: breathing 6s infinite ease-in-out; /* Smooth breathing animation */
 }
+
 /* Keyframes for breathing animation */
 @keyframes breathing {
-    0%, 100% {
-        transform: scale(1); /* Normal size */
-    }
-    50% {
-        transform: scale(1.3); /* Slightly expanded size */
-    }
+  0%, 100% {
+    transform: scale(1); /* Normal size */
+  }
+  50% {
+    transform: scale(1.3); /* Slightly expanded size */
+  }
 }
 
 /* Banner styles */
@@ -183,7 +254,6 @@ canvas {
   border: 1px solid #888;
 }
 
-
 #sound-therapy {
   margin: 20px 0 40px;
 }
@@ -209,6 +279,7 @@ footer {
   font-size: 1rem;
   color: #4a4a4a;
 }
+
 button {
   margin-top: 10px;
   background-color: #4a6a58;
@@ -230,7 +301,7 @@ button:hover {
   color: #4a6a58;
   margin-top: 20px;
 }
- 
+
 #reflection-input {
   width: 100%;
   height: 150px;
@@ -242,7 +313,4 @@ button:hover {
   background-color: #ffffff; /* White background for contrast */
   color: #4b6043; /* Calm green text */
   resize: none;
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle inner shadow */
-  outline: none;
-  transition: border-color 0.3s ease-in-out;
 }
