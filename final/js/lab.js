@@ -88,3 +88,39 @@ document.querySelectorAll('.rake-btn').forEach((button) => {
      }, 4000);
    }
  });
+ 
+ document.addEventListener("DOMContentLoaded", () => {
+  const icons = document.querySelectorAll(".draggable-icon");
+  const body = document.querySelector("body");
+
+  // Drag start event: Add data to the drag event
+  icons.forEach((icon) => {
+    icon.addEventListener("dragstart", (e) => {
+      e.dataTransfer.setData("text/plain", e.target.src); // Store the image source
+    });
+  });
+
+  // Enable dropping anywhere on the screen
+  body.addEventListener("dragover", (e) => {
+    e.preventDefault(); // Prevent default behavior to allow dropping
+  });
+
+  body.addEventListener("drop", (e) => {
+    e.preventDefault();
+    const imgSrc = e.dataTransfer.getData("text/plain"); // Retrieve image source
+    const x = e.clientX; // Get mouse X-coordinate
+    const y = e.clientY; // Get mouse Y-coordinate
+
+    // Create an image element dynamically and place it at the drop location
+    const newIcon = document.createElement("img");
+    newIcon.src = imgSrc;
+    newIcon.style.position = "absolute";
+    newIcon.style.left = `${x - 25}px`; // Center the image horizontally
+    newIcon.style.top = `${y - 25}px`; // Center the image vertically
+    newIcon.style.width = "50px";
+    newIcon.style.height = "50px";
+
+    // Append the new icon to the body
+    body.appendChild(newIcon);
+  });
+});
