@@ -165,7 +165,6 @@ function undo() {
      }, 4000);
    }
  });
- 
  document.addEventListener("DOMContentLoaded", () => {
   const icons = document.querySelectorAll(".draggable-icon");
   const body = document.querySelector("body");
@@ -184,9 +183,12 @@ function undo() {
 
   body.addEventListener("drop", (e) => {
     e.preventDefault();
+
     const imgSrc = e.dataTransfer.getData("text/plain"); // Retrieve image source
-    const x = e.clientX; // Get mouse X-coordinate
-    const y = e.clientY; // Get mouse Y-coordinate
+
+    // Get drop coordinates adjusted for scrolling
+    const x = e.pageX; // X-coordinate of the mouse relative to the document
+    const y = e.pageY; // Y-coordinate of the mouse relative to the document
 
     // Create an image element dynamically and place it at the drop location
     const newIcon = document.createElement("img");
