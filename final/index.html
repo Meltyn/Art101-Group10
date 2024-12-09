@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="js/lab.js" DEFER></script>
+    <script src="js/tracyscript.js"></script>
   
 
 
@@ -32,14 +33,18 @@
                 <div id="interactive-sand-container">
                     <!-- Sand Area -->
                     <canvas id="sandCanvas" width="800" height="400"></canvas>
+                </div>
                     
                    
                 <!-- Rake Tools -->
-                <div id="rake-tools">
-                    <button class="rake-btn" data-tool="small">Small Rake</button>
-                    <button class="rake-btn" data-tool="large">Large Rake</button>
-                    <button class="rake-btn" data-tool="erase">Erase Patterns</button>
+                <div class="rake-button" id="controls">
+                    <button id="smallRake">Small Rake</button>
+                    <button id="mediumRake">Medium Rake</button>
+                    <button id="largeRake">Large Rake</button>
+                    <button id="erase">Erase Sandbox</button>
+                    <button id="undo">Undo</button>
                 </div>
+                
             </section>
             
             <div class="interactive-banner">
@@ -57,7 +62,9 @@
             <!-- Daily Affirmation -->
             <section id="daily-affirmation">
                 <h2>Today's Affirmation</h2>
-                <p id="affirmation-text">"You are exactly where you need to be."</p>
+                <div id="affirmation"> 
+                    <script src="js/tracytest.js"></script>
+                </div>
             </section>
     
             <!-- Toolbox -->
@@ -70,12 +77,51 @@
                     <div class="bubble"></div>
                     <p>Breathe in... Breathe out...</p>
                 </div>
+
                 <div class="tool" id="sound-tool">
                     <h3>Sound Therapy</h3>
-                    <button data-sound="rain">Rain</button>
-                    <button data-sound="waves">Ocean Waves</button>
-                    <button data-sound="birds">Birds Chirping</button>
+                
+                    <!-- Rain Button -->
+                    <button class="playButton" data-sound="rainAudio">Rain</button>
+                    <audio id="rainAudio" src="img/rain-01.mp3"></audio>
+                
+                    <!-- Ocean Waves Button -->
+                    <button class="playButton" data-sound="oceanAudio">Ocean Waves</button>
+                    <audio id="oceanAudio" src="img/ocean-waves-250310.mp3"></audio>
+                
+                    <!-- Birds Chirping Button -->
+                    <button class="playButton" data-sound="birdsAudio">Birds Chirping</button>
+                    <audio id="birdsAudio" src="img/birds-19624.mp3"></audio>
                 </div>
+                
+                <script>
+                    // Add event listener to all buttons with class "playButton"
+                    document.querySelectorAll('.playButton').forEach(button => {
+                        button.addEventListener('click', function () {
+                            // Get the audio element associated with this button
+                            const audioId = this.getAttribute('data-sound');
+                            const audioElement = document.getElementById(audioId);
+                
+                            // Pause all other audio elements
+                            document.querySelectorAll('audio').forEach(audio => {
+                                if (!audio.paused && audio.id !== audioId) {
+                                    audio.pause();
+                                    audio.currentTime = 0; // Reset to start
+                                }
+                            });
+                
+                            // Play or pause the selected audio
+                            if (audioElement.paused) {
+                                audioElement.play();
+                            } else {
+                                audioElement.pause();
+                                audioElement.currentTime = 0; // Reset to start
+                            }
+                        });
+                    });
+                </script>
+                
+                
              
                 <div class="reflection-space">
                     <textarea id="reflection-input" placeholder="Write your thoughts here..."></textarea>

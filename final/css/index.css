@@ -43,6 +43,20 @@ main {
   gap: 20px;
   position: relative;
 }
+#clear-sandbox {
+  background: #b56576; /* Soft pinkish background */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#clear-sandbox:hover {
+  background: #d08398; /* Lighter shade on hover */
+}
 
 /* Decorative Left and Right Sections */
 #decorative-left, #decorative-right {
@@ -71,36 +85,15 @@ main {
   box-shadow: inset 0px 4px 6px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   margin: 0 auto;
-  display: block;
+  cursor: url(../img/zen-garden-rake.png) 16 16, auto; /* custom png for cursor */
 }
 
 canvas {
-  display: block;
   margin: 0 auto;
   width: 100%;
   height: 100%;
   background: radial-gradient(circle, #f8f2e6, #e6d7c3);
   border-radius: inherit; /* Matches container's rounded edges */
-}
-
-/* Rake Tools */
-#rake-tools {
-  margin-top: 20px;
-}
-
-button.rake-btn {
-  background: #a58f78;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  margin: 5px;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-button.rake-btn:hover {
-  background: #c8b191;
 }
 
 /* Affirmation Section */
@@ -192,7 +185,7 @@ button.rake-btn:hover {
 
 
 #sound-therapy {
-  margin: 20px 0;
+  margin: 20px 0 40px;
 }
 
 button.sound-btn {
@@ -238,3 +231,18 @@ button:hover {
   margin-top: 20px;
 }
  
+#reflection-input {
+  width: 100%;
+  height: 150px;
+  padding: 15px;
+  border: 2px solid #c7d8c6; /* Light green border */
+  border-radius: 8px;
+  margin-top: 20px;
+  font-size: 1rem;
+  background-color: #ffffff; /* White background for contrast */
+  color: #4b6043; /* Calm green text */
+  resize: none;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle inner shadow */
+  outline: none;
+  transition: border-color 0.3s ease-in-out;
+}
