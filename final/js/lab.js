@@ -1,5 +1,5 @@
 
-// Author: Autania Mierow
+// Author: Autania Mierow, Bryan Galvan
 // Date: 7 November 2024
 
 document.addEventListener("DOMContentLoaded", () => {

@@ -63,26 +63,50 @@
                     <div class="bubble"></div>
                     <p>Breathe in... Breathe out...</p>
                 </div>
+
                 <div class="tool" id="sound-tool">
                     <h3>Sound Therapy</h3>
-                    
-                    <button id="playButton">Rain</button>
-                    <audio id="myAudio">
-                        <source src="img/rain-01.mp3" type="audio/mpeg">
-                    </audio>
-                    <audio id="audio" src="img/rain-01.mp3" autostart="false"></audio>
-
-
-                    <button data-sound="waves">Ocean Waves</button>
-                    <audio id="myAudio">
-                        <source src="img/ocean-waves-250310.mp3" type="audio/mpeg">
-                    </audio>
-                    <audio id="audio" src="img/ocean-waves-250310.mp3" autostart="false"></audio>
-
-
-
-                    <button data-sound="birds">Birds Chirping</button>
+                
+                    <!-- Rain Button -->
+                    <button class="playButton" data-sound="rainAudio">Rain</button>
+                    <audio id="rainAudio" src="img/rain-01.mp3"></audio>
+                
+                    <!-- Ocean Waves Button -->
+                    <button class="playButton" data-sound="oceanAudio">Ocean Waves</button>
+                    <audio id="oceanAudio" src="img/ocean-waves-250310.mp3"></audio>
+                
+                    <!-- Birds Chirping Button -->
+                    <button class="playButton" data-sound="birdsAudio">Birds Chirping</button>
+                    <audio id="birdsAudio" src="img/birds-19624.mp3"></audio>
                 </div>
+                
+                <script>
+                    // Add event listener to all buttons with class "playButton"
+                    document.querySelectorAll('.playButton').forEach(button => {
+                        button.addEventListener('click', function () {
+                            // Get the audio element associated with this button
+                            const audioId = this.getAttribute('data-sound');
+                            const audioElement = document.getElementById(audioId);
+                
+                            // Pause all other audio elements
+                            document.querySelectorAll('audio').forEach(audio => {
+                                if (!audio.paused && audio.id !== audioId) {
+                                    audio.pause();
+                                    audio.currentTime = 0; // Reset to start
+                                }
+                            });
+                
+                            // Play or pause the selected audio
+                            if (audioElement.paused) {
+                                audioElement.play();
+                            } else {
+                                audioElement.pause();
+                                audioElement.currentTime = 0; // Reset to start
+                            }
+                        });
+                    });
+                </script>
+                
                 
              
                 <div class="reflection-space">
