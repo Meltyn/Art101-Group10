@@ -5,28 +5,28 @@ document.addEventListener("DOMContentLoaded", function() {
     // Define Tracery grammar for affirmations
     var grammar = tracery.createGrammar({
         "origin": [
-            "#greeting# #statement#!",
-            "#greeting# #action#!",
+            "#greeting# #statement#.",
+            "#action#!",
         ],
         "greeting": [
             "I am making today count.", 
-            "Today is a new day!", 
+            "Today is a new day,", 
             "I am enough today.", 
             "I have the power to achieve anything today.",
-            "Today, I am unstoppable!",
-            "Embracing today's possibilities!",
-            "Good morning, beautiful soul!",
+            "Today, I am unstoppable.",
+            "Embracing today's possibilities,",
+            "Good morning, beautiful soul.",
             "My possibilities are endless.",
             "I will be kind to myself today.",
             "I will find moments of joy today.",
-            "I am ready!",
-            "Another day, another opportunity!",
+            "I am ready,",
+            "Another day, another opportunity,",
             "Here's to a productive day!",
             "It's a wonderful time to begin!",
             "Another day to shine!",
             "Today, I choose happiness!",
-            "Today, I am ready for what comes next!",
-            "Rise with purpose, shine with confidence!",
+            "Today, I am ready for what comes next.",
+            "Rise with purpose, shine with confidence.",
 
         ],
         "statement": [
