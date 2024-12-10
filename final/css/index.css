@@ -36,7 +36,7 @@ img {
   max-width: 250px; /* Image size control */
   width: auto;
   height: auto;
-  border-radius: 12px;
+  border-radius: 11px;
   transition: transform 0.3s ease, opacity 0.3s ease;
   opacity: 0.8; /* Slight transparency for layering */
   z-index: -1; /* Ensure images are behind the text */
