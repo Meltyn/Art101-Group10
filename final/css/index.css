@@ -43,14 +43,14 @@ img {
 }
 
 .no-scatter {
-  position: relative; /* Prevents moving out of its container */
-  pointer-events: none; /* Disables interaction during dragging */
+    position: relative; /* Prevents moving out of its container */
+    pointer-events: none; /* Disables interaction during dragging */
 }
 
 .icon-row {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 
