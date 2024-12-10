@@ -127,7 +127,7 @@ img {
   max-width: 250px; /* Image size control */
   width: auto;
   height: auto;
-  border-radius: 12px;
+  border-radius: 11px;
   transition: transform 0.3s ease, opacity 0.3s ease;
   opacity: 0.8; /* Slight transparency for layering */
   z-index: -1; /* Ensure images are behind the text */
@@ -187,7 +187,7 @@ header {
 
 header h1 {
   margin: 0;
-  font-size: 2.5rem;
+  font-size: 3.5rem;
   color: #4b6043;
 }
 
@@ -394,7 +394,7 @@ button:hover {
 
 #reflection-message {
   display: none;
-  font-size: 1.2em;
+  font-size: 1.3em;
   color: #4a6a58;
   margin-top: 20px;
 }
