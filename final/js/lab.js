@@ -1,6 +1,6 @@
 
 // Author: Autania Mierow, Bryan Galvan
-// Date: 7 November 2024
+// Date: 9 November 2024
 
 document.addEventListener("DOMContentLoaded", () => {
   const affirmationText = document.getElementById("affirmation-text");
