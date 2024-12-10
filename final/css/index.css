@@ -195,8 +195,8 @@ canvas {
 }
 
 #breathing-bubble {
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
   margin: 10px auto;
   background: radial-gradient(circle, #88c9b0, #4a746d);
   border-radius: 50%;
