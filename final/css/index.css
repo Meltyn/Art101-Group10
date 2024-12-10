@@ -19,6 +19,97 @@ body {
   position: relative; /* Ensures the images are relative to the body */
 }
 
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* Black overlay with 40% opacity */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 10px 20px;
+  z-index: 1000;
+}
+
+.navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar a.active {
+  color: #a8d5ba;
+  border-bottom: 2px solid #a8d5ba;
+}
+
+.navbar ul li {
+  margin: 0 15px;
+}
+
+.navbar ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.overlay h1 {
+  font-size: 3rem; /* Adjust the size of the main title */
+  margin-bottom: 10px; /* Add spacing below the title */
+  font-weight: bold; /* Ensure the title is prominent */
+  color: #f1f1f1;
+}
+
+.overlay p {
+  font-size: 1.2rem; /* Adjust font size for readability */
+  margin-top: 5px; /* Optional: Add some spacing above */
+  margin-bottom: 20px; /* Adjust spacing below for balance */
+  color: #f1f1f1; /* Lighter color for better contrast on the background */
+}
+
+.cta-button {
+  font-size: 1.1rem;
+  text-decoration: underline;
+  color: #e8d9c2;
+  margin-top: 10px;
+}
+
+
+.section {
+  position: relative;
+  min-height: 100vh; /* Section must at least match the viewport height */
+  padding: 10px 10px; /* Consistent padding */
+  display: flex; /* Align content better */
+  flex-direction: column; /* Stack content vertically */
+  justify-content: center; /* Vertically center the content */
+  align-items: center; /* Horizontally center the content */
+}
+
+#home-section {
+  background-image: url('../img/zen-garden-background\(2\).jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
 /* Container for your main content (like the Zen Garden and Daily Affirmations) */
 .main-content {
   display: flex;
@@ -104,6 +195,12 @@ header p {
   margin: 5px 0;
   font-size: 1rem;
   color: #6c6c6c;
+}
+
+.subtitle {
+  text-align: center;
+  color: #4d4d4d; /* Muted complementary color for text */
+  margin-top: 5px;
 }
 
 .zen-divider {

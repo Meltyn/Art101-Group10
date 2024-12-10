@@ -15,10 +15,24 @@
 
     </head>
     <body>
-        <header>
-            <h1>Virtual Zen Garden</h1>
-            <p>Find your calm, one moment at a time.</p>
-        </header> 
+    <!-- Navigation Bar -->
+        <nav class="navbar">
+            <ul>
+              <li><a href="#home-section">Home</a></li>
+              <li><a href="#sand-garden">Zen Garden</a></li>
+              <li><a href="#meditation-section">Meditate</a></li>
+            </ul>
+          </nav>
+
+    <!-- Homepage Section -->
+    <section id="home-section" class="section">
+        <div class="overlay">
+          <h1>Virtual Zen Garden</h1>
+          <p>一期一会<br>
+            "One time, one meeting."</p>
+          <a href="#sand-garden" class="cta-button">Explore the Garden</a>
+        </div>
+      </section>  
 
        <div class="zen-divider"></div>
 
@@ -27,11 +41,10 @@
 <div class="petal"></div>
 <div class="petal"></div>
      </div>
- 
-     <div class="zen-garden-container">
+
         <!-- Left panel for images -->
     
-            <div class="img-container"></div>
+        <div class="img-container"></div>
           <img src="img/Zen.png" alt="Zen Rock" class="floating-image left" style="top: 10%; left: 2%;">
           <img src="img/icon3.png" alt="Bonsai Tree"class="floating-image left" style="top: 50%; left: 3%;">
           <img src="img/lantern.png" alt="Lantern" class="floating-image left" style="top: 70%; left: 1%;">
@@ -47,9 +60,11 @@
       </div>
       
         <main>
+        <section id="zen-garden-section" class="section">
             <!-- Sand Raking Area -->
             <section id="sand-garden">
                 <h2 class="hidden">Zen Garden</h2>
+                <p class="subtitle">Create and design your own garden!</p>
                 <div id="interactive-sand-container">
                     <!-- Sand Area -->
                     <canvas id="sandCanvas" width="800" height="400"></canvas>
@@ -64,32 +79,24 @@
                     <button id="erase">Erase Sandbox</button>
                     <button id="undo">Undo</button>
                 </div>
-                
-            </section>
             
             <div class="interactive-banner">
-               
                 <div class="icon-row">
                   <img src="img/icon1.png" alt="Icon 1" class="draggable-icon" draggable="true" class="no-scatter">
-                  
-                 
                   <img src="img/icon4.png" alt="Icon 4" class="draggable-icon" draggable="true" class="no-scatter">
                 </div>
-              </div>
+            </div>
+        </section>
          
-            <!-- Daily Affirmation -->
-            <section id="daily-affirmation">
-                <h2>Today's Affirmation</h2>
+    
+            <!-- Mediate -->
+            <section id="meditation-section">
+                <h2>Meditation</h2>
+                <h3>Daily Affirmation</h3>
                 <div id="affirmation"> 
                     <script src="js/tracytest.js"></script>
                 </div>
-            </section>
-    
-            <!-- Toolbox -->
-            <section id="toolbox">
-                <h2>Toolbox</h2>
-                <div id="breathing-bubble"></div> 
-
+                <div id="breathing-bubble"></div>
                 <div class="tool" id="breathing-tool">
                     <h3>Breathing Bubble</h3>
                     <div class="bubble"></div>
