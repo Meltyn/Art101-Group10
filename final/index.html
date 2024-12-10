@@ -35,12 +35,11 @@
       </section>  
 
        <div class="zen-divider"></div>
-
-<div class="petal"></div>
-<div class="petal"></div>
-<div class="petal"></div>
-<div class="petal"></div>
-     </div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+        </div>
 
         <!-- Left panel for images -->
     
@@ -60,17 +59,14 @@
       </div>
       
         <main>
-        <section id="zen-garden-section" class="section">
+        <section id="sand-garden" class="section">
             <!-- Sand Raking Area -->
-            <section id="sand-garden">
                 <h2 class="hidden">Zen Garden</h2>
                 <p>Design and create your own garden</p>
                 <div id="interactive-sand-container">
                     <!-- Sand Area -->
                     <canvas id="sandCanvas" width="800" height="400"></canvas>
                 </div>
-                    
-                   
                 <!-- Rake Tools -->
                 <div class="rake-button" id="controls">
                     <button id="smallRake">Small Rake</button>
@@ -89,77 +85,53 @@
         </section>
          
     
-            <!-- Mediate -->
-            <section id="meditation-section">
-                <h2>Meditation</h2>
-                <h3>Daily Affirmation</h3>
-                <div id="affirmation"> 
-                    <script src="js/tracytest.js"></script>
-                </div>
-                <div id="breathing-bubble"></div>
-                <div class="tool" id="breathing-tool">
-                    <h3>Breathing Bubble</h3>
-                    <div class="bubble"></div>
-                    <p>Breathe in... Breathe out...</p>
-                </div>
+<!-- Meditate Section -->
+<section id="meditation-section">
+    <h1>Meditate</h1>
+    <p>Meditation begins in the garden.</p>
 
-                <div class="tool" id="sound-tool">
+        <!-- Breathing Bubble -->
+        <div class="breathing-container">
+            <div class="bubble">
+                <div class="breathing-text">Inhale</div>
+            </div>
+        </div>
+    
+        <!-- Sound Therapy Tool -->
+    <div class="tool" id="sound-tool">
+        <h3>Sound Therapy</h3>
+        <p>Breathe deeply, let the sounds carry you.</p>
+        
+        <!-- Rain Button -->
+        <button class="playButton" data-sound="rainAudio">Rain</button>
+        <audio id="rainAudio" src="img/rain-01.mp3"></audio>
+        
+        <!-- Ocean Waves Button -->
+        <button class="playButton" data-sound="oceanAudio">Ocean Waves</button>
+        <audio id="oceanAudio" src="img/ocean-waves-250310.mp3"></audio>
+        
+        <!-- Birds Chirping Button -->
+        <button class="playButton" data-sound="birdsAudio">Birds Chirping</button>
+        <audio id="birdsAudio" src="img/birds-19624.mp3"></audio>
+    </div>
+    
+    <!-- Daily Affirmation -->
+    <h3>Daily Affirmation</h3>
+    <div id="affirmation">
+        <script src="js/tracytest.js"></script>
+    </div>
 
-                  
-                    <h3>Sound Therapy</h3>
-                
-                    <!-- Rain Button -->
-                    <button class="playButton" data-sound="rainAudio">Rain</button>
-                    <audio id="rainAudio" src="img/rain-01.mp3"></audio>
-                
-                    <!-- Ocean Waves Button -->
-                    <button class="playButton" data-sound="oceanAudio">Ocean Waves</button>
-                    <audio id="oceanAudio" src="img/ocean-waves-250310.mp3"></audio>
-                
-                    <!-- Birds Chirping Button -->
-                    <button class="playButton" data-sound="birdsAudio">Birds Chirping</button>
-                    <audio id="birdsAudio" src="img/birds-19624.mp3"></audio>
-                </div>
-                
-                <script>
-                    // Add event listener to all buttons with class "playButton"
-                    document.querySelectorAll('.playButton').forEach(button => {
-                        button.addEventListener('click', function () {
-                            // Get the audio element associated with this button
-                            const audioId = this.getAttribute('data-sound');
-                            const audioElement = document.getElementById(audioId);
-                
-                            // Pause all other audio elements
-                            document.querySelectorAll('audio').forEach(audio => {
-                                if (!audio.paused && audio.id !== audioId) {
-                                    audio.pause();
-                                    audio.currentTime = 0; // Reset to start
-                                }
-                            });
-                
-                            // Play or pause the selected audio
-                            if (audioElement.paused) {
-                                audioElement.play();
-                            } else {
-                                audioElement.pause();
-                                audioElement.currentTime = 0; // Reset to start
-                            }
-                        });
-                    });
-                </script>
-                
-                
-             
-                <div class="reflection-space">
-                    <textarea id="reflection-input" placeholder="Write your thoughts here..."></textarea>
-                    <button id="release-button">Release</button>
-                    <p id="reflection-message"></p>
-                  </div>
-            </section>
+    <!-- Reflection Space -->
+    <div class="reflection-space">
+        <textarea id="reflection-input" placeholder="Empty your mind onto the page..."></textarea>
+        <button id="release-button">Release</button>
+        <p id="reflection-message"></p>
+    </div>
+</section>
         </main>
     
         <footer>
-            <p>&copy; 2024 Virtual Zen Garden. Find your calm, always.</p>
+            <p>&copy; 2024, Group 10 Virtual Zen Garden.<br>Find your calm, always.</p>
         </footer>
     </body>
     </html>

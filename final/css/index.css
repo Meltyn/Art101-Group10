@@ -88,7 +88,6 @@ body {
   margin-top: 10px;
 }
 
-
 .section {
   position: relative;
   min-height: 100vh; /* Section must at least match the viewport height */
@@ -265,49 +264,146 @@ canvas {
   border-radius: inherit; /* Matches container's rounded edges */
 }
 
-/* Affirmation Section */
-#affirmation-section {
-  margin: 30px 0;
+#meditation-section {
+  text-align: center;
+  padding: 20px;
+  background: #e0f7f4;
+  border-radius: 15px;
+  margin: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-#affirmation-section h2 {
-  font-size: 1.5rem;
-  color: #4b6043;
-}
-
-#affirmation-section p {
-  font-size: 1.1rem;
-  font-style: italic;
-}
-
-/* Toolbox Section */
-#toolbox-section {
-  margin: 40px 0;
-}
-
-#toolbox-section h2 {
-  font-size: 1.5rem;
-  color: #4b6043;
+h2, h3 {
+  color: #444;
   margin-bottom: 10px;
 }
 
-#breathing-bubble {
-  width: 100px;
-  height: 100px;
-  margin: 10px auto;
-  background: radial-gradient(circle, #88c9b0, #4a746d);
-  border-radius: 50%;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  animation: breathing 6s infinite ease-in-out; /* Smooth breathing animation */
+p {
+  color: #666;
+  margin-bottom: 20px;
 }
 
-/* Keyframes for breathing animation */
-@keyframes breathing {
+.breathing-container {
+  margin: 20px 0;
+}
+
+.bubble {
+  width: 150px;
+  height: 150px;
+  background: rgba(0, 200, 150, 0.2);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  animation: inhale-exhale 4s infinite;
+}
+
+.breathing-text {
+  font-size: 1.2em;
+  color: #444;
+}
+
+@keyframes inhale-exhale {
   0%, 100% {
-    transform: scale(1); /* Normal size */
+      transform: scale(1);
   }
   50% {
-    transform: scale(1.3); /* Slightly expanded size */
+      transform: scale(1.3);
+  }
+}
+
+.tool {
+  margin: 20px 0;
+}
+
+button {
+  padding: 10px 15px;
+  font-size: 1em;
+  background: #567d67;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  margin: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background: #44624e;
+}
+
+textarea {
+  width: 100%;
+  height: 80px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  font-size: 1em;
+}
+
+#release-button {
+  padding: 10px 20px;
+  font-size: 1.1em;
+  background: #44624e;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#release-button:hover {
+  background: #567d67;
+}
+
+/* breathing bubble */
+.breathing-container {
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  margin: 30px 0;
+  padding: 20px;
+  height: 150px;
+  position: relative;
+}
+
+.bubble {
+  width: 150px;
+  height: 150px;
+  background-color: #a8d5ba;
+  border-radius: 50%;
+  animation: breathe 9s infinite;
+  position: relative;
+}
+
+.breathing-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  margin-top: 15px;
+  font-size: 1.5rem;
+  color: #4d4d4d;
+  opacity: 0.8;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  line-height: 0;
+  font-weight: 200px;
+}
+
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1); /* Contracted */
+  }
+  25% {
+    transform: scale(1.5); /* Expanded */
+  }
+  50% {
+    transform: scale(1.5); /* Hold (expanded) */
+  }
+  75% {
+    transform: scale(1); /* Contract */
   }
 }
 
@@ -392,22 +488,32 @@ button:hover {
   background-color: #3b5546;
 }
 
-#reflection-message {
-  display: none;
-  font-size: 1.3em;
-  color: #4a6a58;
+.reflectiion-space {
   margin-top: 20px;
+  padding: 20px;
+  background-color: #eaf5f2;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 #reflection-input {
-  width: 100%;
-  height: 150px;
-  padding: 15px;
-  border: 2px solid #c7d8c6; /* Light green border */
-  border-radius: 8px;
-  margin-top: 20px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  border: 2px solid #c7d8c6;
+  border-radius: 10px;
   font-size: 1rem;
-  background-color: #ffffff; /* White background for contrast */
-  color: #4b6043; /* Calm green text */
+  background-color: #ffffff;
+  color: #4b6043;
   resize: none;
+}
+
+#reflection-message {
+  margin-top: 20px;
+  font-size: 1.1em;
+  color: #4a6a58;
+  display: none;
 }

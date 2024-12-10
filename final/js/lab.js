@@ -146,7 +146,26 @@ function undo() {
   }
 }
 
+// breathing bubble function
+const bubble = document.querySelector(".bubble");
+const text = document.querySelector(".breathing-text");
 
+// Define breathing phases
+const phases = ["Inhale", "Hold", "Exhale", "Hold"];
+const phaseDurations = [2250, 2250, 2250, 2250]; // Each phase is 2.25s
+
+let currentPhase = 0;
+
+function updateBreathing() {
+  text.textContent = phases[currentPhase]; // Update the text
+  currentPhase = (currentPhase + 1) % phases.length; // Loop through phases
+}
+
+// Start the phase updates in sync with the animation
+setInterval(updateBreathing, 2250); // Matches phase duration (9s / 4 phases)
+
+// Initialize the first phase
+updateBreathing();
 
  // Reflection Space Logic
  const reflectionInput = document.getElementById("reflection-input");
@@ -204,7 +223,30 @@ function undo() {
   });
 });
 
+// Add event listener to all buttons with class "playButton"
+document.querySelectorAll('.playButton').forEach(button => {
+  button.addEventListener('click', function () {
+      // Get the audio element associated with this button
+      const audioId = this.getAttribute('data-sound');
+      const audioElement = document.getElementById(audioId);
 
+      // Pause all other audio elements
+      document.querySelectorAll('audio').forEach(audio => {
+          if (!audio.paused && audio.id !== audioId) {
+              audio.pause();
+              audio.currentTime = 0; // Reset to start
+          }
+      });
+
+      // Play or pause the selected audio
+      if (audioElement.paused) {
+          audioElement.play();
+      } else {
+          audioElement.pause();
+          audioElement.currentTime = 0; // Reset to start
+      }
+  });
+});
  
  // Select the button and audio elements using their IDs
 const playButton = document.getElementById('playButton');
