@@ -9,81 +9,129 @@
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="js/lab.js" DEFER></script>
+    <script src="js/tracyscript.js"></script>
   
 
 
     </head>
     <body>
-        <header>
-            <h1>Virtual Zen Garden</h1>
-            <p>Find your calm, one moment at a time.</p>
-        </header> 
-         <!-- Decorative Plants/Structures -->
-         <img src="img/Zen.png" alt="Plant" class="zen-decor left-decor"  width="100">
-         <img src="img/Canva Image.png" alt="bud" class="zen-decor right-decor"  width="100">
-         <img class="photo" src="./img/raindrop.png" width="100"> 
+    <!-- Navigation Bar -->
+        <nav class="navbar">
+            <ul>
+              <li><a href="#home-section">Home</a></li>
+              <li><a href="#sand-garden">Zen Garden</a></li>
+              <li><a href="#meditation-section">Meditate</a></li>
+            </ul>
+          </nav>
 
- 
+    <!-- Homepage Section -->
+    <section id="home-section" class="section">
+        <div class="overlay">
+          <h1>Virtual Zen Garden</h1>
+          <p>一期一会<br>
+            "One time, one meeting."</p>
+          <a href="#sand-garden" class="cta-button">Explore the Garden</a>
+        </div>
+      </section>  
+
+       <div class="zen-divider"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+        </div>
+
+        <!-- Left panel for images -->
     
+        <div class="img-container"></div>
+          <img src="img/Zen.png" alt="Zen Rock" class="floating-image left" style="top: 10%; left: 2%;">
+          <img src="img/icon3.png" alt="Bonsai Tree"class="floating-image left" style="top: 50%; left: 3%;">
+          <img src="img/lantern.png" alt="Lantern" class="floating-image left" style="top: 70%; left: 1%;">
+        </div>
+      
+ 
+        <!-- Right panel for images -->
+        <div class="img-container">
+          <img src="img/icon2.png" alt="Small Plant" class="floating-image right" style="top: 30%; right: 2%;">
+          <img src="img/Canva Image.png" alt="Pagoda" class="floating-image right" style="top: 20%; right: 5%;">
+          <img src="img/koifish.png" alt="Koi Fish" class="floating-image right" style="top: 50%; right: 2%;">
+        </div>
+      </div>
+      
         <main>
+        <section id="sand-garden" class="section">
             <!-- Sand Raking Area -->
-            <section id="sand-garden">
                 <h2 class="hidden">Zen Garden</h2>
+                <p>Design and create your own garden</p>
                 <div id="interactive-sand-container">
                     <!-- Sand Area -->
                     <canvas id="sandCanvas" width="800" height="400"></canvas>
-                    
-                   
+                </div>
                 <!-- Rake Tools -->
-                <div id="rake-tools">
-                    <button class="rake-btn" data-tool="erase">Erase Patterns</button>
-                    <button class="rake-btn" id="clear-sandbox">Clear Sandbox</button> <!-- New Clear Button -->
+                <div class="rake-button" id="controls">
+                    <button id="smallRake">Small Rake</button>
+                    <button id="mediumRake">Medium Rake</button>
+                    <button id="largeRake">Large Rake</button>
+                    <button id="erase">Erase Sandbox</button>
+                    <button id="undo">Undo</button>
                 </div>
-                
-            </section>
             
-    
-            <!-- Daily Affirmation -->
-            <section id="daily-affirmation">
-                <h2>Today's Affirmation</h2>
-                <p id="affirmation-text">"You are exactly where you need to be."</p>
-            </section>
-    
-            <!-- Toolbox -->
-            <section id="toolbox">
-                <h2>Toolbox</h2>
-                <div id="breathing-bubble"></div> 
-
-                <div class="tool" id="breathing-tool">
-                    <h3>Breathing Bubble</h3>
-                    <div class="bubble"></div>
-                    <p>Breathe in... Breathe out...</p>
+            <div class="interactive-banner">
+                <div class="icon-row">
+                  <img src="img/icon1.png" alt="Icon 1" class="draggable-icon" draggable="true" class="no-scatter">
+                  <img src="img/icon4.png" alt="Icon 4" class="draggable-icon" draggable="true" class="no-scatter">
                 </div>
-                <div class="tool" id="sound-tool">
-                    <h3>Sound Therapy</h3>
-                    <button data-sound="rain">Rain</button>
-                    <button data-sound="waves">Ocean Waves</button>
-                    <button data-sound="birds">Birds Chirping</button>
-                </div>
-             
-                <div class="reflection-space">
-                    <textarea id="reflection-input" placeholder="Write your thoughts here..."></textarea>
-                    <button id="release-button">Release</button>
-                    <p id="reflection-message"></p>
-                  </div>
-            </section>
+            </div>
+        </section>
+         
+    
+<!-- Meditate Section -->
+<section id="meditation-section">
+    <h1>Meditate</h1>
+    <p>Meditation begins in the garden.</p>
 
-            <section id="meditate">
-                <h2>Shishi Odoshi</h2>
-                
-                <img src="img/shishi-odoshi.gif">
-              </section>
-              
-              
+        <!-- Breathing Bubble -->
+        <div class="breathing-container">
+            <div class="bubble">
+                <div class="breathing-text">Inhale</div>
+            </div>
+        </div>
+    
+        <!-- Sound Therapy Tool -->
+    <div class="tool" id="sound-tool">
+        <h3>Sound Therapy</h3>
+        <p>Breathe deeply, let the sounds carry you.</p>
+        
+        <!-- Rain Button -->
+        <button class="playButton" data-sound="rainAudio">Rain</button>
+        <audio id="rainAudio" src="img/rain-01.mp3"></audio>
+        
+        <!-- Ocean Waves Button -->
+        <button class="playButton" data-sound="oceanAudio">Ocean Waves</button>
+        <audio id="oceanAudio" src="img/ocean-waves-250310.mp3"></audio>
+        
+        <!-- Birds Chirping Button -->
+        <button class="playButton" data-sound="birdsAudio">Birds Chirping</button>
+        <audio id="birdsAudio" src="img/birds-19624.mp3"></audio>
+    </div>
+    
+    <!-- Daily Affirmation -->
+    <h3>Daily Affirmation</h3>
+    <div id="affirmation">
+        <script src="js/tracytest.js"></script>
+    </div>
+
+    <!-- Reflection Space -->
+    <div class="reflection-space">
+        <textarea id="reflection-input" placeholder="Empty your mind onto the page..."></textarea>
+        <button id="release-button">Release</button>
+        <p id="reflection-message"></p>
+    </div>
+</section>
         </main>
     
         <footer>
-            <p>&copy; 2024 Virtual Zen Garden. Find your calm, always.</p>
+            <p>&copy; 2024, Group 10 Virtual Zen Garden.<br>Find your calm, always.</p>
         </footer>
     </body>
     </html>
