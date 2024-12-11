@@ -167,23 +167,27 @@ setInterval(updateBreathing, 2250); // Matches phase duration (9s / 4 phases)
 // Initialize the first phase
 updateBreathing();
 
- // Reflection Space Logic
- const reflectionInput = document.getElementById("reflection-input");
- const releaseButton = document.getElementById("release-button");
- const reflectionMessage = document.getElementById("reflection-message");
+// Reflection Space Logic
+const reflectionInput = document.getElementById("reflection-input");
+const releaseButton = document.getElementById("release-button");
+const emotionSelect = document.getElementById("emotion-select"); // Added dropdown element
+const reflectionMessage = document.createElement("p"); // Dynamically create the message element
+reflectionMessage.id = "reflection-message"; // Add an ID for consistency
+document.querySelector(".reflective-textarea").appendChild(reflectionMessage); // Append to the container
 
- releaseButton.addEventListener("click", () => {
-   const input = reflectionInput.value.trim();
-   if (input) {
-     reflectionInput.value = "";
-     reflectionMessage.textContent =
-       "Let your thoughts flow like water. That thought has passed now down the river into the unknown.";
-     reflectionMessage.style.display = "block";
-     setTimeout(() => {
-       reflectionMessage.style.display = "none";
-     }, 4000);
-   }
- });
+releaseButton.addEventListener("click", () => {
+  const input = reflectionInput.value.trim();
+  const selectedEmotion = emotionSelect.value; // Get the selected emotion
+  if (input) {
+    reflectionInput.value = "";
+    reflectionMessage.textContent = `You were feeling ${selectedEmotion}, and your thoughts have been released. Let them flow like water.`;
+    reflectionMessage.style.display = "block";
+    setTimeout(() => {
+      reflectionMessage.style.display = "none";
+    }, 4000);
+  }
+});
+
  document.addEventListener("DOMContentLoaded", () => {
   const icons = document.querySelectorAll(".draggable-icon");
   const body = document.querySelector("body");
@@ -257,3 +261,28 @@ playButton.addEventListener('click', function() {
     // Play the audio when the button is clicked
     audioElement.play();
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const slides = document.querySelector(".carousel-container");
+  const prevButton = document.querySelector(".prev-btn");
+  const nextButton = document.querySelector(".next-btn");
+  const totalSlides = document.querySelectorAll(".carousel-slide").length;
+  let currentIndex = 0;
+
+  // Function to update the carousel position
+  function updateCarousel() {
+      slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+  }
+
+  // Event listeners for buttons
+  prevButton.addEventListener("click", () => {
+      currentIndex = (currentIndex > 0) ? currentIndex - 1 : totalSlides - 1;
+      updateCarousel();
+  });
+
+  nextButton.addEventListener("click", () => {
+      currentIndex = (currentIndex < totalSlides - 1) ? currentIndex + 1 : 0;
+      updateCarousel();
+  });
+});
+
