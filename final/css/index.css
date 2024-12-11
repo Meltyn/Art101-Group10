@@ -81,13 +81,6 @@ body {
   color: #f1f1f1; /* Lighter color for better contrast on the background */
 }
 
-.cta-button {
-  font-size: 1.1rem;
-  text-decoration: underline;
-  color: #e8d9c2;
-  margin-top: 10px;
-}
-
 .section {
   position: relative;
   min-height: 100vh; /* Section must at least match the viewport height */
@@ -202,15 +195,6 @@ header p {
   margin-top: 5px;
 }
 
-.zen-divider {
-  margin: 30px auto;
-  width: 80%;
-  height: 2px;
-  background: linear-gradient(to right, transparent, #88c9b0, transparent);
-  border-radius: 2px;
-  opacity: 0.8;
-}
-
 /* Main Layout */
 main {
   max-width: 1200px;
@@ -267,7 +251,17 @@ canvas {
 #meditation-section {
   text-align: center;
   padding: 20px;
-  background: #e0f7f4;
+  background-color: #f7f9f7;
+  border-radius: 15px;
+  margin: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Reflection Section Styling */
+#reflection-section {
+  text-align: center;
+  padding: 20px;
+  background-color: #f7f9f7;
   border-radius: 15px;
   margin: 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -317,20 +311,29 @@ p {
   margin: 20px 0;
 }
 
+/* General Button Styling */
 button {
-  padding: 10px 15px;
-  font-size: 1em;
-  background: #567d67;
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #757648;
   color: white;
   border: none;
   border-radius: 8px;
-  margin: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
+/* Hover Effect */
 button:hover {
-  background: #44624e;
+  background-color: #919d5a; /* Darker green on hover */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Active/Pressed Effect */
+button:active {
+  transform: scale(0.95); /* Slight shrink effect */
+  background-color: #919d5a; /* Even darker green on press */
 }
 
 textarea {
@@ -341,21 +344,7 @@ textarea {
   border-radius: 8px;
   margin-bottom: 10px;
   font-size: 1em;
-}
-
-#release-button {
-  padding: 10px 20px;
-  font-size: 1.1em;
-  background: #44624e;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-#release-button:hover {
-  background: #567d67;
+  align-items: center;
 }
 /* Breathing Bubble */
 .breathing-container {
@@ -457,7 +446,7 @@ textarea {
 }
 
 button.sound-btn {
-  background: #4b6043;
+  color: #c4cb9f;;
   color: white;
   border: none;
   padding: 8px 15px;
@@ -468,7 +457,7 @@ button.sound-btn {
 }
 
 button.sound-btn:hover {
-  background: #88c9b0;
+  color: #c4cb9f;
 }
 
 /* Footer */
@@ -478,47 +467,92 @@ footer {
   color: #4a4a4a;
 }
 
-button {
+/* Textarea Wrapper */
+.textarea-wrapper {
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 15px;
+  position: relative; /* Allows for absolute positioning */
+  width: 100%;
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.textarea-container {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
   margin-top: 10px;
-  background-color: #4a6a58;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 16px;
 }
 
-button:hover {
-  background-color: #3b5546;
-}
-
-.reflectiion-space {
-  margin-top: 20px;
-  padding: 20px;
-  background-color: #eaf5f2;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
+/* Textarea Styling */
 #reflection-input {
-  margin-top: 30px;
-  margin-bottom: 20px;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 20px;
-  border: 2px solid #c7d8c6;
+  width: 100%;
+  height: 150px;
+  padding: 50px 15px 15px; /* Space for the dropdown */
+  border: 2px solid #86945e;
   border-radius: 10px;
-  font-size: 1rem;
+  font-size: 1em;
+  resize: none;
   background-color: #ffffff;
   color: #4b6043;
-  resize: none;
+  align-items: center;
 }
 
-#reflection-message {
-  margin-top: 20px;
-  font-size: 1.1em;
+.reflective-textarea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
+  padding: 20px;
+  margin-left: -30px;
+}
+
+/* Dropdown and Label Styling */
+.textarea-label {
+  font-size: 1rem;
+  color: #4b6043;
+  display: block;
+  margin-bottom: 10px;
+  text-align: left; /* Align text to the left */
+}
+
+.reflection-button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+#emotion-select {
+  padding: 5px 10px;
+  font-size: 0.9em;
+  border: 1px solid #c7d8c6;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: #4b6043;
+  cursor: pointer;
+}
+
+.emotion-dropdown {
+  display: flex;
+  align-items: center;
+}
+
+.emotion-dropdown label {
+  font-size: 1.2em;
   color: #4a6a58;
-  display: none;
+  margin-right: 10px;
+}
+
+#emotion-select {
+    padding: 5px 10px;
+    font-size: 1em;
+    border: 1px solid #c7d8c6;
+    border-radius: 8px;
+    background-color: #ffffff;
+    color: #4b6043;
+    cursor: pointer;
 }
