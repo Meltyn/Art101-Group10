@@ -59,6 +59,7 @@
       </div>
       
         <main>
+    <!-- zen garden section -->
         <section id="sand-garden" class="section">
             <!-- Sand Raking Area -->
                 <h2 class="hidden">Zen Garden</h2>
@@ -72,6 +73,9 @@
                     <button id="smallRake">Small Rake</button>
                     <button id="mediumRake">Medium Rake</button>
                     <button id="largeRake">Large Rake</button>
+                </div>
+                
+                <div class="rake-button" id="controls">
                     <button id="erase">Erase Sandbox</button>
                     <button id="undo">Undo</button>
                 </div>
@@ -88,7 +92,7 @@
 <!-- Meditate Section -->
 <section id="meditation-section">
     <h1>Meditate</h1>
-    <p>Meditation begins in the garden.</p>
+    <p>Meditation begins in the garden</p>
 
         <!-- Breathing Bubble -->
         <div class="breathing-container">
@@ -99,7 +103,7 @@
     
         <!-- Sound Therapy Tool -->
     <div class="tool" id="sound-tool">
-        <p>Breathe deeply, let the sounds carry you.</p>
+        <p>Breathe deeply, let the sounds carry you</p>
         
         <!-- Rain Button -->
         <button class="playButton" data-sound="rainAudio">Rain</button>
@@ -119,19 +123,45 @@
     <div id="affirmation">
         <script src="js/tracytest.js"></script>
     </div>
-
-    <!-- Reflection Space -->
-    <div class="reflection-space">
-        <textarea id="reflection-input" placeholder="Empty your mind onto the page..."></textarea>
-        <button id="release-button">Release</button>
-        <p id="reflection-message"></p>
-    </div>
 </section>
-        </main>
+
+<section id="reflection-section">
+    <h1>Release and Let Go</h1>
+    <p>A quiet mind is a canvas for peace</p>
+
+    <!-- Reflection -->
+    <div class="reflective-textarea">
+        <div class="textarea-wrapper">
+                <label for="emotion-select" class="textarea-label">
+                    Right now I'm feeling...
+                        <select id="emotion-select" name="emotion">
+                        <option value="happy">happy</option>
+                        <option value="sad">sad</option>
+                        <option value="upset">upset</option>
+                        <option value="anxious">anxious</option>
+                        <option value="tired">tired</option>
+                        <option value="relaxed">relaxed</option>
+                        <option value="frustrated">frustrated</option>
+                        <option value="optimistic">optimistic</option>
+                        <option value="cheerful">cheerful</option>
+                        <option value="depressed">depressed</option>
+                        <option value="calm">calm</option>
+                        <option value="content">content</option>
+                        <option value="hopeful">hopeful</option>
+                    </select>
+            </label>
+            <div class="textarea-container">
+                <textarea id="reflection-input" placeholder="Empty your mind..."></textarea>
+                <button class="reflection-button" id="release-button">Release</button>
+            </div>
+        </div>
+    </section>
+
+
+    </main>
     
         <footer>
             <p>&copy; 2024, Group 10 Virtual Zen Garden.<br>Find your calm, always.</p>
         </footer>
     </body>
     </html>
-    
