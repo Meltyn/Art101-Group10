@@ -85,6 +85,11 @@ input, select, textarea {
   }
 }
 
+.cta-button {
+  color: #69a688;
+  font-size: 20px;
+}
+
 .section {
   position: relative;
   width: 100vw; /* Full width */
