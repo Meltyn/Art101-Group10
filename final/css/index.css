@@ -359,11 +359,10 @@ textarea {
   resize: none;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-
-/* breathing bubble */
+/* Breathing Bubble */
 .breathing-container {
   display: flex;
-  justify-content:center;
+  justify-content: center;
   align-items: center;
   margin: 30px 0;
   padding: 20px;
@@ -374,40 +373,46 @@ textarea {
 .bubble {
   width: 150px;
   height: 150px;
-  background-color: #a8d5ba;
+  background: radial-gradient(circle, #b9cfe9 30%, #9fddd8 70%, #69a688 100%);
   border-radius: 50%;
-  animation: breathe 9s infinite;
+  animation: breathe 16s infinite ease-in-out; /* Total cycle: 16s */
   position: relative;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
 .breathing-text {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, 50%);
-  margin-top: 15px;
+  transform: translate(-50%, -50%);
   font-size: 1.5rem;
   color: #4d4d4d;
   opacity: 0.8;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 0;
-  font-weight: 200px;
+  font-family: Arial, sans-serif;
+  line-height: 1.2;
+  font-weight: 300;
 }
 
+/* Breathing Animation */
 @keyframes breathe {
-  0%, 100% {
-    transform: scale(1); /* Contracted */
+  0% {
+    transform: scale(1); /* Normal size */
   }
   25% {
-    transform: scale(1.5); /* Expanded */
+    transform: scale(1.5); /* Inhale (expand) */
   }
   50% {
     transform: scale(1.5); /* Hold (expanded) */
   }
   75% {
-    transform: scale(1); /* Contract */
+    transform: scale(1); /* Exhale (contract) */
+  }
+  100% {
+    transform: scale(1); /* Hold (contracted) */
   }
 }
+
+
 
 /* Banner styles */
 .interactive-banner {

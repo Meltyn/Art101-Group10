@@ -146,13 +146,13 @@ function undo() {
   }
 }
 
-// breathing bubble function
+// Breathing bubble function
 const bubble = document.querySelector(".bubble");
 const text = document.querySelector(".breathing-text");
 
 // Define breathing phases
 const phases = ["Inhale", "Hold", "Exhale", "Hold"];
-const phaseDurations = [2250, 2250, 2250, 2250]; // Each phase is 2.25s
+const phaseDurations = [4000, 4000, 4000, 4000]; // Each phase is 4s
 
 let currentPhase = 0;
 
@@ -162,7 +162,7 @@ function updateBreathing() {
 }
 
 // Start the phase updates in sync with the animation
-setInterval(updateBreathing, 2250); // Matches phase duration (9s / 4 phases)
+setInterval(updateBreathing, 4000); // Matches phase duration (16s / 4 phases)
 
 // Initialize the first phase
 updateBreathing();
